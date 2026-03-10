@@ -1,0 +1,34 @@
+﻿@page
+@model FIIsAnalyzer.Pages.Historicos.CreateModel
+@{
+    ViewData["Title"] = "Adicionar Histórico de Cotação";
+}
+
+<h2>Adicionar Histórico de Cotação</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="FiiId">FII</label>
+        <select asp-for="Historico.FiiId" class="form-control" asp-items="@(new SelectList(Model.ListaFIIs, "Id", "Codigo"))">
+            <option value="">-- Selecione um FII --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Historico.Cotacao"></label>
+        <input asp-for="Historico.Cotacao" class="form-control" type="number" step="0.01" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Historico.Quantidade"></label>
+        <input asp-for="Historico.Quantidade" class="form-control" type="number" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Historico.DataReferencia"></label>
+        <input asp-for="Historico.DataReferencia" class="form-control" type="date" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-page="/FIIs/Index" class="btn btn-secondary">Cancelar</a>
+</form>

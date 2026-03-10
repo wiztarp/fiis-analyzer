@@ -1,0 +1,40 @@
+﻿@page "{id:int}"
+@model FIIsAnalyzer.Pages.FIIs.EditModel
+@{
+    ViewData["Title"] = "Editar FII";
+}
+
+<h2>Editar FII</h2>
+
+<form method="post">
+
+    <input type="hidden" asp-for="FiiEditado.Id" />
+
+    <div class="form-group">
+        <label asp-for="FiiEditado.Codigo"></label>
+        <input asp-for="FiiEditado.Codigo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FiiEditado.Setor"></label>
+        <input asp-for="FiiEditado.Setor" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FiiEditado.Descricao"></label>
+        <input asp-for="FiiEditado.Descricao" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FiiEditado.Quantidade"></label>
+        <input asp-for="FiiEditado.Quantidade" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FiiEditado.CotacaoAtual"></label>
+        <input asp-for="FiiEditado.CotacaoAtual" class="form-control" type="number" step="0.01" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

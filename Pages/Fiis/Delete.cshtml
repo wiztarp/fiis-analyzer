@@ -1,0 +1,21 @@
+﻿@page "{id:int}"
+@model FIIsAnalyzer.Pages.FIIs.DeleteModel
+@{
+    ViewData["Title"] = "Excluir FII";
+}
+
+<h2>Excluir FII</h2>
+
+<h4>Tem certeza que deseja excluir o FII abaixo?</h4>
+<div>
+    <strong>Código:</strong> @Model.Fii.Codigo <br />
+    <strong>Setor:</strong> @Model.Fii.Setor <br />
+    <strong>Quantidade:</strong> @Model.Fii.Quantidade <br />
+    <strong>Cotação Atual:</strong> R$ @Model.Fii.CotacaoAtual.ToString("N2")
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Fii.Id" />
+    <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,39 @@
+﻿@page
+@model FIIsAnalyzer.Pages.FIIs.IndexModel
+@{
+    ViewData["Title"] = "Lista de FIIs";
+}
+
+<h2>Lista de FIIs</h2>
+
+<a asp-page="Create" class="btn btn-success mb-3">Novo FII</a>
+<a asp-page="/HistoricoCotacoes/Index" class="btn btn-info">Ver Histórico</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Setor</th>
+            <th>Quantidade</th>
+            <th>Cotação Atual</th>
+            <th>Valor Total</th>
+            <th>Ações</th> <!-- nova coluna -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fii in Model.ListaFIIs)
+        {
+            <tr>
+                <td>@fii.Codigo</td>
+                <td>@fii.Setor</td>
+                <td>@fii.Quantidade</td>
+                <td>R$ @fii.CotacaoAtual.ToString("N2")</td>
+                <td>R$ @((fii.Quantidade * fii.CotacaoAtual).ToString("N2"))</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@fii.Id" class="btn btn-sm btn-warning">Editar</a>
+                    <a asp-page="Delete" asp-route-id="@fii.Id" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

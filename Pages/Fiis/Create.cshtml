@@ -1,0 +1,42 @@
+﻿@page
+@model FIIsAnalyzer.Pages.FIIs.CreateModel
+@{
+    ViewData["Title"] = "Novo FII";
+}
+
+<h2>Cadastrar novo FII</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="NovoFII.Codigo"></label>
+        <input asp-for="NovoFII.Codigo" class="form-control" />
+        <span asp-validation-for="NovoFII.Codigo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NovoFII.Setor"></label>
+        <input asp-for="NovoFII.Setor" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NovoFII.Descricao"></label>
+        <input asp-for="NovoFII.Descricao" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NovoFII.Quantidade"></label>
+        <input asp-for="NovoFII.Quantidade" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NovoFII.CotacaoAtual"></label>
+        <input asp-for="NovoFII.CotacaoAtual" class="form-control" type="number" step="0.01" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
